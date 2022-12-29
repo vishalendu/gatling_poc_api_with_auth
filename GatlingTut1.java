@@ -7,6 +7,7 @@ import net.sf.saxon.om.Chain;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import static io.gatling.javaapi.core.CoreDsl.*;
 import static io.gatling.javaapi.http.HttpDsl.*;
@@ -45,7 +46,7 @@ public class GatlingTut1 extends Simulation{
             exec(setToken)
             .exec(http("createOrder")
             .post("/order")
-            .body(StringBody("{\"orderNum\":\"1234\"}"))
+            .body(StringBody(session -> getPayload()))
             .check(status().saveAs("status"))
             .check(status().is(200))
             );
@@ -78,6 +79,10 @@ public class GatlingTut1 extends Simulation{
 
 
 
+    }
+
+    public String getPayload(){
+        return "{\"orderNum\":\""+ UUID.randomUUID().toString()+"\"}";
     }
 
 
