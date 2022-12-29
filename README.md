@@ -2,8 +2,8 @@
 Gatling Java POC on API calls with expiring auth
 
 
-Used Mockoon to mock the /order and /authorize apis.
-Note: Mockoon environment file is attached and can be used by importing into your local env.
+Used Mockoon to mock the /order and /authorize apis.  
+***Note: Mockoon environment file is attached and can be used by importing into your local env.***
 
 The /authorize api returns the following:
 {"token":"{{now 'YYYYMMDDHHmmssSSS'}}","status":"authorized"}
