@@ -24,6 +24,7 @@ public class GatlingTut1 extends Simulation{
     private ChainBuilder setToken = exec(
             session -> session.set("token", GatlingTut1.jwt)
             );
+
     private ChainBuilder getAuth =
             exec(http("get auth token")
             .post("/authorize")
@@ -38,7 +39,7 @@ public class GatlingTut1 extends Simulation{
                 return session;
                     })
             ;
-    
+
     private ChainBuilder order =
             exec(setToken)
             .exec(session -> {
@@ -52,6 +53,7 @@ public class GatlingTut1 extends Simulation{
             .check(status().saveAs("status"))
             .check(status().is(200))
             );
+    
     private ScenarioBuilder scn = scenario("Get Auth")
             .during(120).on(
              exec(getAuth)
