@@ -10,7 +10,7 @@
         {
             "uuid": "d4aadfb6-d2ed-4e1f-9383-ff51ac5b71b2",
             "documentation": "",
-            "method": "get",
+            "method": "post",
             "endpoint": "authorize",
             "responses": [
                 {
@@ -46,7 +46,7 @@
         {
             "uuid": "5504f3f5-6934-4ad0-9000-6d2b6ca3e6eb",
             "documentation": "",
-            "method": "get",
+            "method": "post",
             "endpoint": "order",
             "responses": [
                 {
